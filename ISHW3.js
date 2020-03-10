@@ -22,14 +22,16 @@ step = parseInt(step);
 //console.log(start+ stop+step);
 
 function createList(beginning, end, change) {
-  listGenerated = [];
+  var listGenerated = [];
 
   for (i = beginning; i <= end; i += change) {
     listGenerated.push(i);
   }
+  for (i = beginning; i >= end; i += change) {
+    listGenerated.push(i);
+  }
   //console.log(listGenerated.toString())//[1,2,3]
-  console.log(listGenerated);
-  isError(listGenerated);
+  //console.log("this is the list 32"+listGenerated)
   return listGenerated;
 }
 function sumList(list1) {
@@ -47,8 +49,6 @@ function convertListToBinaryList(numberList) {
     binary = binaryConvert(number);
     binaryList.push(binary);
   }
-  //var binary = parseInt(listIndex, 10);
-  //console.log(binaryList.toString());
   return binaryList;
 }
 
@@ -66,12 +66,6 @@ function binaryConvert(x) {
   return binaryString;
 }
 
-function isError(list) {
-  console.log(list);
-  if ((list = [])) {
-    console.log("there is an error, change your step value.");
-  }
-}
 var numberList = createList(start, stop, step);
 console.log("this is the list of numbers " + numberList);
 var sumOfList = sumList(numberList);
